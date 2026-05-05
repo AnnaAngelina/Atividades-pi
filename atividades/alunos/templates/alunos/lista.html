@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lista de Alunos{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'alunos/css/lista.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h2>Lista de Alunos</h2>
+
+    <a href="{% url 'alunos:novo_aluno' %}" class="btn">Novo Aluno</a>
+
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+        <tr>
+            <td>João Silva</td>
+            <td><a href="{% url 'alunos:detalhes_aluno' %}" class="btn">Ver</a></td>
+        </tr>
+        <tr>
+            <td>Maria Souza</td>
+            <td><a href="#" class="btn">Ver</a></td>
+        </tr>
+    </table>
+{% endblock %}

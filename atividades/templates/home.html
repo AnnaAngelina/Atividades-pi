@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="title-img">
+        <h1>Bem-vindo ao Sistema de Gerenciamento Escolar (SGE)</h1>
+        <img src="{% static 'img/home-img.jpg' %}" alt="Imagem de boas-vindas">
+    </div>
+    <p>O SGE é uma plataforma completa para gerenciar as atividades escolares, facilitando a comunicação entre alunos, professores e administradores. Com o SGE, você pode acessar informações sobre alunos, turmas, notas e muito mais, tudo em um só lugar.</p>
+    <p>Explore as funcionalidades do SGE e aproveite ao máximo a experiência de gerenciamento escolar!</p>
+{% endblock %}

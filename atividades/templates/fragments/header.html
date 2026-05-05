@@ -1,0 +1,16 @@
+{% load static %}
+<header class="cabecalho">
+    <div>
+        <img src="{% static 'img/logo.jpeg' %}" alt="" class="logo">
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'home_view' %}">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'alunos:lista_alunos' %}">Lista de alunos</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
