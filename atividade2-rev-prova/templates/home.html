@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock stylesheets %}
+
+{% block title %}
+    <title>Home</title>
+{% endblock title %}
+
+{% block main %}
+        <!-- Conteúdo Principal -->
+    <div class="content-header">
+        <h2 class="page-title">Home</h2>
+        <p class="page-subtitle">Visão geral do sistema</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="stat-card">
+            <div class="stat-icon">📊</div>
+            <div class="stat-info">
+                <h3 class="stat-label">Total de mísicas</h3>
+                <p class="stat-value">0</p>
+                <p class="stat-description">músicas cadastrados</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-info">
+                <h3 class="stat-label">Últimos Adicionados</h3>
+                <p class="stat-value">0</p>
+                <p class="stat-description">Últimos 7 dias</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📁</div>
+            <div class="stat-info">
+                <h3 class="stat-label">Categorias</h3>
+                <p class="stat-value">0</p>
+                <p class="stat-description">Categorias ativas</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions-section">
+        <h3 class="section-title">Ações Rápidas</h3>
+        <div class="action-buttons">
+            <a href="{% url 'musicas:lista-musicas' %}" class="btn btn-primary">
+                <span class="btn-icon">📋</span>
+                Ver Lista Completa
+            </a>
+            <a href="#" class="btn btn-secondary">
+                <span class="btn-icon">➕</span>
+                Adicionar Novo Item
+            </a>
+        </div>
+    </div>
+
+{% endblock main %}

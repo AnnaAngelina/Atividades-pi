@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/lista.css' %}">
+{% endblock stylesheets %}
+
+{% block title %}
+    <title>Lista de musicas</title>
+{% endblock title %}
+
+{% block main %}
+
+    <div class="content-header">
+        <div class="breadcrumb">
+            <a href="#">Início</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Lista de musicas</span>
+        </div>
+        <h2 class="page-title">Lista de musicas</h2>
+    </div>
+
+    <div class="list-controls">
+        <div class="search-box-container">
+            <input type="text" class="search-box" placeholder="🔍 Buscar itens...">
+        </div>
+        <button class="btn btn-primary btn-add">
+            <span class="btn-icon">➕</span>
+            Adicionar Novo
+        </button>
+    </div>
+
+    <div class="items-container">
+        <!-- Os alunos devem usar um loop para exibir os itens aqui -->
+        <!-- Exemplo de estrutura de um item: -->
+        <div class="item-card">
+            <div class="item-content">
+                <div class="item-header">
+                    <h3 class="item-title">Foi de amor</h3>
+                    <span class="item-badge">Rock</span>
+                    <span class="item-badge">MPB</span>
+                </div>
+                <a class="item-description" href="{% url 'musicas:detalhe-musicas' %}">Detalhes do artista</a>
+                <div class="item-meta">
+                    <span class="meta-item">2014</span>
+                    <span class="meta-item">Nação Zumbi</span>
+                </div>
+            </div>
+            <div class="item-actions">
+                <a href="{% url 'musicas:detalhe-musicas' %}" class="btn-action btn-view" title="Ver detalhes">
+                    <span>👁️</span>
+                </a>
+                <a href="#" class="btn-action btn-edit" title="Editar">
+                    <span>✏️</span>
+                </a>
+            </div>
+        </div>
+        <div class="item-card">
+            <div class="item-content">
+                <div class="item-header">
+                    <h3 class="item-title">A cidade</h3>
+                    <span class="item-badge">Rock</span>
+                    <span class="item-badge">MPB</span>
+                </div>
+                <a class="item-description" href="{% url 'musicas:detalhe-musicas' %}">Detalhes do artista</a>
+                <div class="item-meta">
+                    <span class="meta-item">1994</span>
+                    <span class="meta-item">Chico Science & Nação Zumbi</span>
+                </div>
+            </div>
+            <div class="item-actions">
+                <a href="{% url 'musicas:detalhe-musicas' %}" class="btn-action btn-view" title="Ver detalhes">
+                    <span>👁️</span>
+                </a>
+                <a href="#" class="btn-action btn-edit" title="Editar">
+                    <span>✏️</span>
+                </a>
+            </div>
+        </div>
+        <div class="item-card">
+            <div class="item-content">
+                <div class="item-header">
+                    <h3 class="item-title">Novas Auroras</h3>
+                    <span class="item-badge">Rock</span>
+                    <span class="item-badge">MPB</span>
+                </div>
+                <a class="item-description" href="{% url 'musicas:detalhe-musicas' %}">Detalhes do artista</a>
+                <div class="item-meta">
+                    <span class="meta-item">2014</span>
+                    <span class="meta-item">Nação Zumbi</span>
+                </div>
+            </div>
+            <div class="item-actions">
+                <a href="{% url 'musicas:detalhe-musicas' %}" class="btn-action btn-view" title="Ver detalhes">
+                    <span>👁️</span>
+                </a>
+                <a href="#" class="btn-action btn-edit" title="Editar">
+                    <span>✏️</span>
+                </a>
+            </div>
+        </div>
+        <div class="item-card">
+            <div class="item-content">
+                <div class="item-header">
+                    <h3 class="item-title">Quem sabe isso quer dizer amor</h3>
+                    <span class="item-badge">Jazz</span>
+                    <span class="item-badge">MPB</span>
+                </div>
+                <a class="item-description" href="{% url 'musicas:detalhe-musicas' %}">Detalhes do artista</a>
+                <div class="item-meta">
+                    <span class="meta-item">2002</span>
+                    <span class="meta-item">Milton Nascimento</span>
+                </div>
+            </div>
+            <div class="item-actions">
+                <a href="{% url 'musicas:detalhe-musicas' %}" class="btn-action btn-view" title="Ver detalhes">
+                    <span>👁️</span>
+                </a>
+                <a href="#" class="btn-action btn-edit" title="Editar">
+                    <span>✏️</span>
+                </a>
+            </div>
+        </div>
+        <div class="item-card">
+            <div class="item-content">
+                <div class="item-header">
+                    <h3 class="item-title">Sina</h3>
+                    <span class="item-badge">MPB</span>
+                </div>
+                <a class="item-description" href="{% url 'musicas:detalhe-musicas' %}">Detalhes do artista</a>
+                <div class="item-meta">
+                    <span class="meta-item">2020</span>
+                    <span class="meta-item">Djavan</span>
+                </div>
+            </div>
+            <div class="item-actions">
+                <a href="{% url 'musicas:detalhe-musicas' %}" class="btn-action btn-view" title="Ver detalhes">
+                    <span>👁️</span>
+                </a>
+                <a href="#" class="btn-action btn-edit" title="Editar">
+                    <span>✏️</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock main %}

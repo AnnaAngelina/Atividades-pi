@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        
+    {% endblock title %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock stylesheets %}
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Header Superior -->
+        {% include 'fragments/header.html' %}
+
+        <!-- Menu Lateral -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="{% url 'dashboard' %}" class="nav-item active">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-text">Home</span>
+                </a>
+                <a href="{% url 'musicas:lista-musicas' %}" class="nav-item">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">Lista de musicas</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">➕</span>
+                    <span class="nav-text">Adicionar Novo</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Relatórios de popularidade</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Configurações</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            {% block main %}
+
+            {% endblock main %}
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+{{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/detalhe.css' %}">
+{% endblock stylesheets %}
+
+{% block title %}
+    <title>Detalhes do artista</title>
+{% endblock title %}
+
+{% block main %}
+
+    <div class="content-header">
+        <div class="breadcrumb">
+            <a href="#">Início</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="#">Lista</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Detalhes</span>
+        </div>
+    </div>
+
+    <div class="detail-container">
+        <div class="detail-hero">
+            <div class="detail-hero-content">
+                <h1 class="detail-title">Nação zumbi</h1>
+                <span class="detail-badge">originalmente Chico Science & Nação Zumbi</span>
+            </div>
+            <div class="detail-hero-actions">
+                <button class="btn btn-secondary">✏️ Editar</button>
+                <button class="btn btn-danger">🗑️ Excluir</button>
+            </div>
+        </div>
+
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3 class="section-title">
+                    <span class="section-icon">📋</span>
+                    Informações Principais
+                </h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Formação:</span>
+                        <span class="info-value">1990</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Álbuns Clássicos:</span>
+                        <span class="info-value">Da lama ao caos</span>
+                        <span class="info-value">Afrociberdelia</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Músicas:</span>
+                        <span class="info-value">A cidade</span>
+                        <span class="info-value">Foi de amor</span>
+                        <span class="info-value">Novas Auroras</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3 class="section-title">
+                    <span class="section-icon">📝</span>
+                    Descrição
+                </h3>
+                <div class="description-box">
+                    <p>
+                        Grupo formado na cidade de Olinda (PE), em 1990, resultado da união de alguns componentes das bandas Loustal e Lamento Negro.
+                        É uma das bandas mais influentes da música brasileira. Formada no Recife no início dos anos 1990, liderou o movimento cultural Manguebeat, misturando maracatu, rock, rap, funk e música psicodélica
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3 class="section-title">
+                    <span class="section-icon">ℹ️</span>
+                    Informações Adicionais
+                </h3>
+                <ul class="info-list">
+                    <li>Em fevereiro de 1997, Chico Science faleceu tragicamente em um acidente de carro. Apesar do duro golpe, os músicos decidiram continuar com o projeto. O percussionista Jorge Du Peixe assumiu os vocais, mantendo o grupo na ativa até hoje com grande sucesso e reconhecimento internaciona</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="detail-footer">
+            <a href="{% url 'musicas:lista-musicas' %}" class="btn btn-outline">← Voltar para Lista</a>
+        </div>
+    </div>
+
+{% endblock main %}
