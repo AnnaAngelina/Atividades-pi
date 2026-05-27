@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Detalhes do Aluno{% endblock %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'alunos/css/detalhe.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="detalhe-box">
+        <h2>Detalhes do Aluno</h2>
+
+        <div style="background:white; padding:20px; border-radius:5px;">
+            <p><strong>Nome:</strong> João Silva</p>
+            <p><strong>Matrícula:</strong> 202500123</p>
+            <p><strong>Curso:</strong> Informática</p>
+        </div>
+
+        <br>
+        <a href="{% url 'alunos:lista_alunos' %}" class="btn">Voltar</a>
+    </div>
+{% endblock %}

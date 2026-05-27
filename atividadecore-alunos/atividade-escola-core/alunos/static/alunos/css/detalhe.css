@@ -1,0 +1,16 @@
+h2 {
+    color: #2e7d32;
+    margin-bottom: 20px;
+}
+
+.detalhe-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.detalhe-box p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}

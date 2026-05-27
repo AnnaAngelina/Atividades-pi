@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGE - {% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+</head>
+<body>
+    {% include 'fragments/header.html' %}
+    <main class="container">
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div>
+            <p>&copy; 2023 SGE. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
