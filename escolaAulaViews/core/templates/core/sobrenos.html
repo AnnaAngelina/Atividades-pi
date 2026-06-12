@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Sobre nós</h2>
+
+<p><b>Nome da escola:</b> {{ nome }}</p>
+<p><b>Fundação:</b> {{ fundacao }}</p>
+<p><b>Anos ofertados:</b> 
+    {% for ano in anos %}
+        {{ ano }},
+        {% if forloop.last %}
+            {{ ano }}.
+        {% endif %}
+    {% endfor %}
+</p>
+<hr>
+
+<p>Nossa instituição atende alunos da Educação Infantil ao Ensino Médio, proporcionando um ambiente acolhedor, seguro e estimulante para o desenvolvimento intelectual, emocional e social. Contamos com uma equipe de profissionais qualificados, dedicados a promover uma aprendizagem significativa e centrada no estudante.
+<br>
+Dispomos de salas de aula modernas, laboratório de informática, biblioteca, espaços de convivência e áreas destinadas à prática esportiva e cultural. Além disso, desenvolvemos projetos pedagógicos que incentivam a criatividade, o pensamento crítico, a inovação e o protagonismo estudantil.
+<br>
+Nossa missão é formar cidadãos conscientes, preparados para atuar de maneira responsável na sociedade e contribuir positivamente para a construção de um futuro melhor. Nossa visão é ser reconhecida pela excelência educacional e pelo compromisso com a formação integral de nossos alunos.
+<br>
+Na Escola Horizonte do Saber, acreditamos que a educação é a ferramenta mais poderosa para transformar vidas e construir oportunidades.</p>
+
+{% endblock %}

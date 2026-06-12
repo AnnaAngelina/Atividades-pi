@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% block links %}
+    {% endblock links %}
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'home' %}">Sistema escolar Reginaldo Bessa</a></h1>
+        <nav >
+            <p><a href="{% url 'listestudantes' %}">Lista alunos</a></p>
+            <p><a href="{% url 'sobrenos' %}">Sobre nós</a></p>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+</body>
+</html>
