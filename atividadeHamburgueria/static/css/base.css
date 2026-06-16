@@ -1,0 +1,78 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background:#fdf7f7;
+    color:#222;
+}
+
+header{
+    width:100%;
+    padding:25px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:#ff2d2d;
+}
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#ff2d2d;
+}
+
+.status{
+    font-weight:600;
+}
+
+.aberto{
+    color:#15b851;
+}
+
+.fechado{
+    color:#b81515;
+}
+
+footer{
+    margin-top:100px;
+    padding:40px;
+    text-align:center;
+    background:white;
+}
+
+.footer-logo{
+    font-size:25px;
+    font-weight:bold;
+    color:#ff2d2d;
+    margin-bottom:20px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-bottom:20px;
+}
+
+.footer-links a{
+    text-decoration:none;
+    color:#555;
+}

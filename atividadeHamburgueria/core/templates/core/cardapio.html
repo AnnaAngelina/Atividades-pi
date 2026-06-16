@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/cardapio.css' %}">
+{% endblock %}
+
+{% block status %}
+    {% if loja_aberta %}
+        <span class="aberto">
+            Aberto
+        </span>
+    {% else %}
+        <span class="fechado">
+            Fechado
+        </span>
+    {% endif %}
+{% endblock status %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <span class="tag">
+            Melhor hamburgueria da cidade
+        </span>
+
+        <h1>
+            {{ nome_loja }}
+        </h1>
+
+        <p>
+            Hambúrgueres artesanais preparados diariamente com ingredientes frescos e selecionados.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn-red">
+                Fazer Pedido
+            </a>
+
+            <a href="#cardapio" class="btn-white">
+                Ver Cardápio
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="categorias">
+
+    <div class="categoria">🍔 Burgers</div>
+    <div class="categoria">🍟 Fritas</div>
+    <div class="categoria">🥤 Bebidas</div>
+    <div class="categoria">🍕 Combos</div>
+    <div class="categoria">🍰 Sobremesas</div>
+
+</section>
+
+
+<section class="promocao">
+
+    <div class="promo-card">
+
+        <div class="promo-info">
+
+            <span class="destaque">
+                🔥 PROMOÇÃO DA SEMANA
+            </span>
+
+            <h2>{{ promocao_do_dia.nome }}</h2>
+
+            <p>{{ promocao_do_dia.descricao }}</p>
+
+            <h3>R$ {{ promocao_do_dia.preco }}</h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="menu" id="cardapio">
+
+    <h2>Nosso Cardápio</h2>
+
+    <div class="cards">
+        {% for lanche in lanches %}
+            <div class="card">
+                <h3>{{ lanche.nome }}</h3>
+                <p>R$ {{ lanche.preco }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+{% endblock %}
