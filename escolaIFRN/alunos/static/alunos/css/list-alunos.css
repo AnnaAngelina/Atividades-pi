@@ -1,0 +1,58 @@
+h2 {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 10px #0000001a;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #b6ffb6;
+    color: darkgreen;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #eeffee;
+}
+
+th {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+td {
+    color: #333;
+}
+
+.mensagem {
+    font-size: 10px;
+    display: block;
+    width: fit-content;
+    padding: 5px 10px;
+    background-color: rgb(182, 255, 182);
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.nconcedido {
+    font-weight: lighter;
+    display: inline-block;
+    width: fit-content;
+    padding: 5px 10px;
+    background-color: lightpink;
+    border-radius: 30px;
+    margin-bottom: 5px;
+    color: darkred;
+    font-size: 16px;
+}

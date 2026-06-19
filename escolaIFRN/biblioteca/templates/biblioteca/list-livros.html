@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'biblioteca/css/list-livros.css' %}">
+
+{% endblock links %}
+
+
+{% block main %}
+
+    <h2>Livros</h2>
+    <p>Confira alguns livros disponíveis na <b>biblioteca</b> do IFRN</p>
+    
+    <ul class="livroslist">
+        {% for livro in livros %}
+        <li class="livro">
+            <div>
+                {% if livro.prioridade_leitura == 1 %}
+                    <p class="prioridade">Prioridade de leitura: <b>Alta</b></p>
+                {% elif livro.prioridade_leitura == 2 %}
+                    <p class="prioridade">Prioridade de leitura: <b>Média</b></p>
+                {% else %}
+                    <p class="prioridade">Prioridade de leitura: <b>Baixa</b></p>
+                {% endif %}
+                <h3>{{ livro.titulo }} <span class="ano">{{ livro.ano }}</span></h3>
+                <p class="autor">Autor: {{ livro.autor }}</p>
+                <p class="detalhes"><a href="{% url 'livro-detalhe' livro.id %}">Detalhes</a></p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock main %}
