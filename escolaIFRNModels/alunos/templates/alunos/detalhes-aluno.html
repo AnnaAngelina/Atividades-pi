@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'alunos/css/detalhes-aluno.css' %}">
+
+{% endblock links %}
+
+{% block main %}
+
+    <h2>{{ aluno.nome }}</h2>
+    <p><b>Matrícula:</b> {{ aluno.matricula }}</p>
+
+    <a class="back" href="{% url 'list_alunos' %}">Voltar</a>
+
+{% endblock main %}

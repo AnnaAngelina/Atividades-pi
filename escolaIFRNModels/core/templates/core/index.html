@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+
+{% endblock links %}
+
+{% block main %}
+
+<p>Bem vindo, <b>{{ usuario }}</b></p>
+
+<h1>Seu <span class="futuro"><i>futuro</i></span> começa <span class="aqui">aqui</span></h1>
+<p><b>222 cursos ofertados</b>, transformando a vida
+de mais de <b>200 mil</b> pessoas.</p>
+
+{% endblock main %}

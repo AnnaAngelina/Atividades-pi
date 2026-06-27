@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'biblioteca/css/detalhe-livro.css' %}">
+
+{% endblock links %}
+
+
+{% block main %}
+
+    <div class="livros-grid">
+        <article class="livro-card">
+
+            <div class="cabecalho">
+                <h2>{{ livro_selecionado.titulo }}</h2>
+
+                <span class="prioridade">
+                    Prioridade {{ livro_selecionado.prioridade_leitura }}
+                </span>
+            </div>
+
+            <div class="informacoes">
+                <p><strong>Autor:</strong> {{ livro_selecionado.autor }}</p>
+                <p><strong>Ano:</strong> {{ livro_selecionado.ano }}</p>
+            </div>
+
+            <div class="sinopse">
+                <p>
+                    {{ livro_selecionado.sinopse }}
+                </p>
+            </div>
+            <a class="back" href="{% url 'list_livros' %}">Voltar</a>
+        </article>
+    </div>
+
+{% endblock main %}

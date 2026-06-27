@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'disciplinas/css/list.css' %}">
+
+{% endblock links %}
+
+
+{% block main %}
+
+{% if autorizado %}
+    <p class="mensagem">Acesso concedido</p>
+    <h2>Disciplinas</h2>
+    <ul class="disciplinaslist">
+        {% for d in disciplinas %}
+            <li>{{ d }}</li>
+
+        {% empty %}
+            <p>Não há <b>nenhuma disciplina</b> disponível </p>
+
+        {% endfor %}
+    </ul>
+{% else %}
+    <h2>Acesso <span class="nconcedido">não concedido</span></h2>
+    <p>Parece que você está tentando acessar um conteúdo que não possui permissão</p>
+{% endif %}
+
+{% endblock main %}

@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFRN</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block links %}
+    {% endblock links %}
+</head>
+<body>
+    <header>
+        <a class="logo" href="{% url 'index' %}"><img src="{% static 'img/logoifrn.png' %}" alt=""></a>
+        <nav>
+            <ul>
+                <li><a href="{% url 'lista_disciplinas' %}">Disciplinas</a></li>
+                <li><a href="{% url 'list_livros' %}">Biblioteca</a></li>
+                <li><a href="{% url 'list_alunos' %}">Alunos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block main %}
+        {% endblock main %}
+    </main>
+</body>
+</html>

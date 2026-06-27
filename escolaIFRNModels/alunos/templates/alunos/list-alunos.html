@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'alunos/css/list-alunos.css' %}">
+
+{% endblock links %}
+
+
+{% block main %}
+
+{% if mostrar_alerta %}
+    <script>
+        alert('Você está acessando uma página com dados sensíveis')
+    </script>
+{% endif %}
+
+{% if autorizado %}
+    <p class="mensagem">Acesso concedido</p>
+    <h2>Alunos</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>nº linha</th>
+                <th>Nome</th>
+                <th>Matrícula</th>
+                <th>Detalhes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.matricula }}</td>
+                <td><a class="detalhes" href="{% url 'detalhe_aluno' aluno.id %}">Detalhes</a></td>
+            </tr>
+            {% empty %}
+                <p>Não há <b>nenhum aluno</b> cadastrado</p>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% else %}
+    <h2>Acesso <span class="nconcedido">não concedido</span></h2>
+    <p>Parece que você está tentando acessar um conteúdo que não possui permissão</p>
+{% endif %}
+
+{% endblock main %}
