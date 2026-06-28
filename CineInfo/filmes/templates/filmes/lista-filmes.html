@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+
+    <link rel="stylesheet" href="{% static 'filmes/css/lista.css' %}">
+
+{% endblock links %}
+
+{% block main %}
+
+<section class="movies" id="filmes">
+
+    <div class="section-title">
+        <span>Catálogo</span>
+        <h2>Filmes em Destaque</h2>
+        <p>
+            Descubra alguns dos filmes mais populares e bem avaliados.
+        </p>
+    </div>
+
+    <div class="movies-grid">
+
+        {% for filme in filmes %}
+
+            <article class="movie-card">
+
+                <div class="movie-info">
+                    <h3>{{ filme.titulo }}</h3>
+
+                    <p>
+                        {{ filme.sinopse }}
+                    </p>
+
+                    <div class="movie-footer">
+                        <span>⭐ {{ filme.nota }} </span>
+                    </div>
+                </div>
+            </article>
+
+        {% empty %}
+
+            <p>
+                <strong>Parece que o catálogo está vazio</strong> 
+            </p>
+
+        {% endfor %}
+    </div>
+
+</section>
+
+{% endblock main %}

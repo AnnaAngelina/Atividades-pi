@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineInfo</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block links %}
+    {% endblock links %}
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <a href="{% url 'home' %}" class="logo">
+                <span class="cine">Cine</span><span class="info">Info</span>
+            </a>
+
+            <nav class="nav">
+                <a href="{% url 'lista_filmes' %}" class="nav-link">Filmes</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+    {% block main %}
+    {% endblock main %}
+    </main>
+
+</body>
+</html>

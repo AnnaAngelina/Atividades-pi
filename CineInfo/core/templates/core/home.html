@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+
+    <link rel="stylesheet" href="{% static 'core/css/home.css' %}">
+
+{% endblock links %}
+
+{% block main %}
+
+<section class="hero">
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            O universo do cinema em um só lugar
+        </span>
+
+        <h1>
+            Descubra filmes que vão marcar sua história.
+        </h1>
+
+        <p>
+            Explore lançamentos, clássicos inesquecíveis e encontre
+            informações completas sobre os filmes que você mais ama.
+            Do suspense à comédia, do drama à ficção científica,
+            o CineInfo reúne tudo para quem é apaixonado por cinema.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="{% url 'lista_filmes' %}" class="btn-primary">
+                Explorar Filmes
+            </a>
+
+            <a href="#sobre" class="btn-secondary">
+                Saiba Mais
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock main %}
