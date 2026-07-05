@@ -1,0 +1,66 @@
+{% load static %}
+
+{% block links %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+
+{% endblock links %}
+
+<header class="header">
+
+    <div class="container">
+
+        <a href="{% url 'home' %}" class="logo">
+            <span class="logo-icon">
+                <i class="fa-solid fa-leaf"></i>
+            </span>
+
+            <span class="logo-text">
+                FreshMart
+            </span>
+        </a>
+
+        <button class="categories-btn">
+            <i class="fa-solid fa-bars"></i>
+            Browse All Categories
+        </button>
+
+        <nav class="navbar">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'listaProdutos' %}">Produtos</a>
+            <a href="{% url 'listaServicos' %}">Serviços</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <button class="icon-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <button class="icon-btn">
+                <i class="fa-regular fa-user"></i>
+            </button>
+
+            <button class="icon-btn cart">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+                <span class="cart-count">
+                    2
+                </span>
+
+            </button>
+
+            <button class="recently-viewed">
+
+                Recently Viewed
+
+                <i class="fa-solid fa-angle-down"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>

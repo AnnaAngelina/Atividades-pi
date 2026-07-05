@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+
+    <link rel="stylesheet" href="{% static 'servicos/css/listaservicos.css' %}">
+
+{% endblock links %}
+
+{% block main %}
+
+<section class="services-section">
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do Serviço</th>
+                    <th>Profissional Responsável</th>
+                    <th>Tempo Estimado</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for servico in servicos %}
+
+                <tr>
+
+                    <td class="id">
+                        {{ servico.id }}
+                    </td>
+
+                    <td>
+
+                        <div class="service-info">
+
+                            <div class="service-icon">
+
+                                {% if servico.nome_servico == "Delivery" %}
+                                    🚚
+                                {% elif servico.nome_servico == "Produtos Frescos" %}
+                                    🥗
+                                {% elif servico.nome_servico == "Pagamento Seguro" %}
+                                    💳
+                                {% elif servico.nome_servico == "Atendimento" %}
+                                    🎧
+                                {% else %}
+                                    🛠️
+                                {% endif %}
+
+                            </div>
+
+                            <div>
+                                <h3>{{ servico.nome_servico }}</h3>
+                                <small>Serviço disponível</small>
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                    <td>
+                        {{ servico.responsavel }}
+                    </td>
+
+                    <td>
+                        <span class="time-badge">
+                            {{ servico.tempo_estimado }}
+                        </span>
+                    </td>
+
+                    <td>
+
+                        <a href="{% url 'detalheServico' servico.id %}" class="details-btn">
+                            Detalhes
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+                    <td colspan="5" class="empty">
+                        Nenhum serviço cadastrado.
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+</section>
+
+{% endblock main %}

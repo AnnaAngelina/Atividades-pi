@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+
+    <link rel="stylesheet" href="{% static 'produtos/css/lista.css' %}">
+
+{% endblock links %}
+
+{% block main %}
+
+
+<section class="products-section">
+    <h1>Produtos</h1>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do Produto</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td class="id">{{ produto.id }}</td>
+
+                    <td>
+                        <div class="product-info">
+                            <div class="product-icon">
+                                {% if produto.categoria == "Frutas" %}
+                                    🍎
+                                {% elif produto.categoria == "Verduras" %}
+                                    🥬
+                                {% elif produto.categoria == "Carnes" %}
+                                    🥩
+                                {% elif produto.categoria == "Padaria" %}
+                                    🍞
+                                {% elif produto.categoria == "Laticínios" %}
+                                    🥛
+                                {% else %}
+                                    🛒
+                                {% endif %}
+                            </div>
+
+                            <div>
+                                <h3>{{ produto.nome }}</h3>
+                                <small>Produto disponível</small>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="category">
+                            {{ produto.categoria }}
+                        </span>
+                    </td>
+
+                    <td class="price">
+                        R$ {{ produto.preco }}
+                    </td>
+
+                    <td>
+                        <a href="{% url 'detalhesProduto' produto.id %}" class="details-btn">
+                            Detalhes
+                        </a>
+                    </td>
+                </tr>
+
+                {% empty %}
+
+                <tr>
+                    <td colspan="5" class="empty">
+                        Nenhum produto cadastrado.
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="market-info">
+    <div class="info-card">
+        <div class="icon">🚚</div>
+
+        <div>
+            <h3>Entrega Rápida</h3>
+            <p>Receba suas compras com rapidez e segurança.</p>
+        </div>
+    </div>
+
+    <div class="info-card">
+        <div class="icon">💳</div>
+
+        <div>
+            <h3>Pagamento Seguro</h3>
+            <p>Diversas formas de pagamento disponíveis.</p>
+        </div>
+    </div>
+
+    <div class="info-card">
+        <div class="icon">🎧</div>
+
+        <div>
+            <h3>Suporte</h3>
+            <p>Atendimento durante todo o horário comercial.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock main %}

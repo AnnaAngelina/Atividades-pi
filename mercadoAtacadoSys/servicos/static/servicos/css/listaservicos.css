@@ -1,0 +1,111 @@
+.services-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.table-container {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #FDB515;
+}
+
+thead th {
+    padding: 18px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ececec;
+    transition: .25s;
+}
+
+tbody tr:hover {
+    background: #f8fbf8;
+}
+
+tbody td {
+    padding: 20px 18px;
+    vertical-align: middle;
+}
+
+.id {
+    font-weight: 600;
+    color: #666;
+}
+
+.service-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: #f5f5f5;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+.service-info h3 {
+    font-size: 17px;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.service-info small {
+    color: #888;
+    font-size: 13px;
+}
+
+.time-badge {
+    display: inline-block;
+    background: #eef8f1;
+    color: #0d7c43;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.details-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #0d7c43;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.details-btn:hover {
+    background: #096336;
+    transform: translateY(-2px);
+}
+
+.empty {
+    text-align: center;
+    padding: 40px;
+    color: #777;
+    font-size: 16px;
+}
+

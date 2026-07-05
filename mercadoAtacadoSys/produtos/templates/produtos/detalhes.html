@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+
+    <link rel="stylesheet" href="{% static 'produtos/css/detalhes.css' %}">
+
+{% endblock links %}
+
+{% block main %}
+
+<section class="product-detail">
+    <div class="product-container">
+
+        <div class="product-image">
+            <button class="arrow left">&#10094;</button>
+
+            <div class="image-box">
+                <div class="product-emoji">
+                    {% if produto.categoria == "Frutas" %}
+                        🍎
+                    {% elif produto.categoria == "Verduras" %}
+                        🥬
+                    {% elif produto.categoria == "Carnes" %}
+                        🥩
+                    {% elif produto.categoria == "Padaria" %}
+                        🍞
+                    {% elif produto.categoria == "Laticínios" %}
+                        🥛
+                    {% else %}
+                        🛒
+                    {% endif %}
+                </div>
+            </div>
+
+            <button class="arrow right">&#10095;</button>
+        </div>
+
+        <div class="product-info">
+
+            <span class="category">{{ produto.categoria }}</span>
+
+            <div class="title-stock">
+                <h1>{{ produto.nome }}</h1>
+                <span class="stock">Em estoque</span>
+            </div>
+
+            <div class="rating">
+                <span class="stars">★★★★★</span>
+                <span class="reviews">5.0 (245 avaliações)</span>
+            </div>
+
+            <div class="price">
+                <h2>R$ {{ produto.preco }}</h2>
+            </div>
+
+            <div class="product-id">
+                <strong>ID:</strong>
+                <span>{{ produto.id }}</span>
+            </div>
+
+            <div class="description">
+                <p>{{ produto.descricao }}</p>
+            </div>
+
+            <div class="buttons">
+                <a href="{% url 'listaProdutos' %}" class="btn-secondary">
+                    Voltar
+                </a>
+
+                <button class="btn-primary">
+                    Adicionar ao Carrinho
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock main %}

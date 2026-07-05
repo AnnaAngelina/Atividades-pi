@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+
+    <link rel="stylesheet" href="{% static 'servicos/css/detalheservico.css' %}">
+
+{% endblock links %}
+
+{% block main %}
+
+<section class="service-detail">
+    <div class="service-container">
+
+        <div class="service-image">
+
+            <div class="image-box">
+
+                <div class="service-icon">
+                    {% if servico.nome_servico == "Delivery" %}
+                        🚚
+                    {% elif servico.nome_servico == "Produtos Frescos" %}
+                        🥗
+                    {% elif servico.nome_servico == "Pagamento Seguro" %}
+                        💳
+                    {% elif servico.nome_servico == "Atendimento" %}
+                        🎧
+                    {% else %}
+                        🛠️
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="service-info">
+
+            <span class="category">
+                Serviço
+            </span>
+
+            <div class="title-status">
+                <h1>{{ servico.nome_servico }}</h1>
+
+                <span class="status">
+                    Disponível
+                </span>
+            </div>
+
+            <div class="technical-sheet">
+
+                <div class="sheet-item">
+                    <strong>ID</strong>
+                    <span>{{ servico.id }}</span>
+                </div>
+
+                <div class="sheet-item">
+                    <strong>Responsável</strong>
+                    <span>{{ servico.responsavel }}</span>
+                </div>
+
+                <div class="sheet-item">
+                    <strong>Tempo Estimado</strong>
+                    <span>{{ servico.tempo_estimado }}</span>
+                </div>
+
+            </div>
+
+            <div class="description">
+
+                <h2>Descrição do Serviço</h2>
+
+                <p>
+                    O serviço <strong>{{ servico.nome_servico }}</strong> é oferecido pelo mercado com foco em qualidade, eficiência e segurança para todos os clientes. A equipe responsável atua seguindo procedimentos padronizados para garantir um atendimento confiável e um excelente nível de satisfação durante toda a execução do serviço.
+                </p>
+
+            </div>
+
+            <div class="requirements">
+
+                <h2>Pré-requisitos</h2>
+
+                <ol>
+                    {% for s in servico.requisitos %}
+                        <br>
+                        <li>{{ s }}</li>
+                    {% endfor %}
+                </ol>
+
+            </div>
+
+            <div class="buttons">
+
+                <a href="{% url 'listaServicos' %}" class="btn-secondary">
+                    Voltar
+                </a>
+
+                <button class="btn-primary">
+                    Solicitar Serviço
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock main %}

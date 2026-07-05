@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/home.css' %}">
+
+{% endblock links %}
+
+{% block main %}
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <span class="tag">Mercado • Qualidade • Economia</span>
+
+        <h1>Os melhores produtos para sua casa.</h1>
+
+        <p>
+            Encontre frutas, verduras, carnes, bebidas, produtos de limpeza e
+            muito mais em um só lugar.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#" class="btn-primary">Comprar Agora</a>
+            <a href="{% url 'listaProdutos' %}" class="btn-secondary">Ver Produtos</a>
+        </div>
+
+    </div>
+
+    <div class="hero-icon">
+        🛒
+    </div>
+
+</section>
+
+<section class="categories">
+
+    <h2>Categorias</h2>
+
+    <div class="category-grid">
+
+        {% for produto in produtos %}
+            <div class="category-card">
+
+                {% if produto.categoria == "Frutas" %}
+                    🍎
+                {% elif produto.categoria == "Verduras" %}
+                    🥬
+                {% elif produto.categoria == "Carnes" %}
+                    🥩
+                {% elif produto.categoria == "Padaria" %}
+                    🍞
+                {% elif produto.categoria == "Laticínios" %}
+                    🥛
+                {% else %}
+                    🛒
+                {% endif %}
+
+                <h3>{{ produto.categoria }}</h3>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+<section class="products">
+
+    <div class="section-title">
+        <h2>Produtos em Destaque</h2>
+        <a href="#">Ver Todos</a>
+    </div>
+
+    <div class="product-grid">
+
+        {% for produto in produtos %}
+            <div class="product-card">
+                <span class="product-icon">
+                    {% if produto.categoria == "Frutas" %}
+                        🍎
+                    {% elif produto.categoria == "Verduras" %}
+                        🥬
+                    {% elif produto.categoria == "Carnes" %}
+                        🥩
+                    {% elif produto.categoria == "Padaria" %}
+                        🍞
+                    {% elif produto.categoria == "Laticínios" %}
+                        🥛
+                    {% else %}
+                        🛒
+                    {% endif %}
+                </span>
+                <h3>{{ produto.nome }}</h3>
+                <h4>R$ {{ produto.preco }}</h4>
+                <button>Adicionar</button>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+<section class="services">
+
+    <h2>Nossos Serviços</h2>
+
+    <div class="service-grid">
+
+        {% for servico in servicos %}
+
+            <div class="service-card">
+                {% if servico.nome_servico == "Delivery" %}
+                    🚚
+                {% elif servico.nome_servico == "Produtos Frescos" %}
+                    🥗
+                {% elif servico.nome_servico == "Pagamento Seguro" %}
+                    💳
+                {% elif servico.nome_servico == "Atendimento" %}
+                    🎧
+                {% else %}
+                    🛠️
+                {% endif %}
+
+                <h3>{{ servico.nome_servico }}</h3>
+                <p>{{ servico.responsavel }}.</p>
+            </div>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock main %}
