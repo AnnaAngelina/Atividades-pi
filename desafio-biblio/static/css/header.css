@@ -1,0 +1,193 @@
+/* ============================================
+   TOKENS — paleta quente inspirada em estante de livros
+   ============================================ */
+:root{
+  --cream-bg:      #F4EEE1;
+  --cream-card:    #FBF7EE;
+  --ink:           #2C2620;
+  --ink-soft:      #7A7266;
+  --gold:          #C99A4E;
+  --gold-deep:     #B4823A;
+  --gold-tint:     #F0DFB8;
+  --line:          #E6DCC3;
+  --shadow-card:   0 8px 24px rgba(44, 38, 32, 0.06);
+
+  --font-display: "Fraunces", serif;
+  --font-body:    "Inter", sans-serif;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--cream-bg);
+  font-family:var(--font-body);
+  color:var(--ink);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header{
+  background:var(--cream-card);
+  border-bottom:1px solid var(--line);
+}
+
+.header-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:18px 32px;
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+/* Marca */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.5rem;
+  letter-spacing:0.02em;
+  color:var(--ink);
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+.brand-mark{
+  width:26px;
+  height:26px;
+  display:inline-flex;
+  color:var(--gold-deep);
+}
+.brand-mark svg{ width:100%; height:100%; }
+
+/* Navegação em pílulas */
+.nav-pills{
+  display:flex;
+  gap:6px;
+  background:var(--cream-bg);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:4px;
+  margin-left:8px;
+}
+
+.pill{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:none;
+  background:transparent;
+  color:var(--ink-soft);
+  font-family:var(--font-body);
+  font-weight:500;
+  font-size:0.9rem;
+  padding:9px 18px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pill svg{
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+}
+
+.pill:hover{ color:var(--ink); }
+
+.pill.is-active{
+  background:var(--gold);
+  color:#fff;
+  box-shadow:0 4px 10px rgba(180, 130, 58, 0.35);
+}
+
+/* Ações à direita */
+.header-actions{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--cream-bg);
+  color:var(--ink-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.icon-btn svg{ width:18px; height:18px; }
+
+.icon-btn:hover{
+  color:var(--gold-deep);
+  border-color:var(--gold);
+  transform:translateY(-1px);
+}
+
+.icon-btn--menu{ display:none; }
+
+.avatar-btn{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:2px solid var(--gold-tint);
+  padding:0;
+  cursor:pointer;
+  background:var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.avatar-fallback{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:0.8rem;
+  color:#fff;
+}
+
+.pill:focus-visible,
+.icon-btn:focus-visible,
+.avatar-btn:focus-visible,
+.brand:focus-visible{
+  outline:2px solid var(--gold-deep);
+  outline-offset:2px;
+}
+
+.preview-area{
+  max-width:1180px;
+  margin:48px auto;
+  padding:0 32px;
+  color:var(--ink-soft);
+  font-size:0.95rem;
+}
+
+/* ============================================
+   RESPONSIVO
+   ============================================ */
+@media (max-width: 860px){
+  .nav-pills .pill span{ display:none; }
+  .header-inner{ gap:14px; padding:14px 20px; }
+}
+
+@media (max-width: 640px){
+  .nav-pills{ display:none; }
+  .icon-btn--menu{ display:flex; }
+  .header-actions{ gap:8px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .icon-btn, .pill{ transition:none; }
+}

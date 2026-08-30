@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+{% endblock links %}
+
+
+{% block main %}
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy-block">
+        <span class="eyebrow">Catálogo digital</span>
+        <h1 class="hero-title">Descubra seu<br>próximo <em>livro</em>.</h1>
+        <p class="hero-copy">
+          Explore o acervo completo por título, autor ou editora — e acompanhe
+          os lançamentos assim que chegam à estante.
+        </p>
+        <form class="hero-form" action="{% url 'listar_livros' %}" method="get">
+          <input type="text" name="q" placeholder="Buscar por título ou autor…">
+          <button type="submit" class="btn">Buscar</button>
+        </form>
+      </div>
+
+      <div class="hero-stack">
+        <span class="hero-badge">Destaque da semana</span>
+
+        <div class="book-cover cv-3 stack-back">
+          <span class="cv-tag">Nº 021</span>
+          <span class="cv-title">Ficção</span>
+        </div>
+        <div class="book-cover cv-6 stack-mid">
+          <span class="cv-tag">Nº 008</span>
+          <span class="cv-title">Clássicos</span>
+        </div>
+
+        {% if livro_destaque %}
+        <div class="book-cover cv-1 stack-front">
+          <span class="cv-tag">Nº {{ livro_destaque.id }}</span>
+          <div>
+            <div class="cv-title">{{ livro_destaque.titulo }}</div>
+            <div class="cv-author">{{ livro_destaque.autor.nome }}</div>
+          </div>
+        </div>
+        {% else %}
+        <div class="book-cover cv-1 stack-front">
+          <span class="cv-tag">Nº 001</span>
+          <div>
+            <div class="cv-title">O último recado dele</div>
+            <div class="cv-author">Laura Dave</div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="info-row">
+
+      <div class="info-card">
+        <span class="eyebrow">Sobre o acervo</span>
+        <div class="stat-list">
+          <div class="stat-row">
+            <span class="num">{{ total_livros }}</span>
+            <span class="label">Livros</span>
+          </div>
+          <div class="stat-row">
+            <span class="num">{{ total_autores }}</span>
+            <span class="label">Autores</span>
+          </div>
+          <div class="stat-row">
+            <span class="num">{{ total_editoras }}</span>
+            <span class="label">Editoras</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Estante atual</span>
+          <h2>Adicionados recentemente</h2>
+        </div>
+        <a class="see-all" href="{% url 'listar_livros' %}">Ver acervo completo →</a>
+      </div>
+
+      <div class="shelf">
+        <div class="shelf-row">
+          {% for livro in livros_recentes %}
+            <a class="book-card" href="#">
+                <span class="cv-tag">Nº {{ livro.id }}</span>
+                <div>
+                  <div class="cv-title">{{ livro.titulo }}</div>
+                  <div class="cv-author">{{ livro.autor.nome }}</div>
+                </div>
+              </div>
+              <div class="card-meta">
+                <p class="title">{{ livro.titulo }}</p>
+              </div>
+            </a>
+          {% empty %}
+            <div class="empty-state" style="width:100%;">
+              <span class="eyebrow">Estante vazia</span>
+              <h3>Nenhum livro cadastrado ainda</h3>
+              <p>Assim que houver livros no acervo, eles aparecerão nesta estante.</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock main %}

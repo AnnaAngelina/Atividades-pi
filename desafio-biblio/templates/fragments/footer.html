@@ -1,0 +1,103 @@
+{% load static %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+{% endblock links %}
+
+
+{% block main %}
+
+    <footer class="site-footer">
+
+        <div class="footer-top">
+            <div class="footer-inner">
+
+            <div class="footer-brand">
+                <a class="brand" href="#">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4.5C4 3.7 4.7 3 5.5 3H11c1 0 1.8.6 2 1.5C13.2 3.6 14 3 15 3h3.5c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5H15c-1 0-1.8.6-2 1.4-.2-.8-1-1.4-2-1.4H5.5C4.7 19 4 18.3 4 17.5v-13Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                    <path d="M12 4.7v14" stroke="currentColor" stroke-width="1.4"/>
+                    </svg>
+                </span>
+                Books
+                </a>
+                <p class="footer-tagline">Novas histórias todas as semanas, direto na sua estante.</p>
+
+                <form class="newsletter" onsubmit="return false;">
+                <label class="sr-only" for="newsletter-email">Seu e-mail</label>
+                <input id="newsletter-email" type="email" placeholder="Seu e-mail" required>
+                <button type="submit">Assinar</button>
+                </form>
+            </div>
+
+            <nav class="footer-col" aria-label="Explorar">
+                <h3>Explorar</h3>
+                <ul>
+                <li><a href="#">Novidades</a></li>
+                <li><a href="#">Mais vendidos</a></li>
+                <li><a href="#">Autor da semana</a></li>
+                <li><a href="#">Audiolivros</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-col" aria-label="Conta">
+                <h3>Conta</h3>
+                <ul>
+                <li><a href="#">Minha estante</a></li>
+                <li><a href="#">Itens salvos</a></li>
+                <li><a href="#">Assinatura</a></li>
+                <li><a href="#">Preferências</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-col" aria-label="Suporte">
+                <h3>Suporte</h3>
+                <ul>
+                <li><a href="#">Central de ajuda</a></li>
+                <li><a href="#">Fale conosco</a></li>
+                <li><a href="#">Privacidade</a></li>
+                <li><a href="#">Termos de uso</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-col footer-social">
+                <h3>Siga</h3>
+                <div class="social-row">
+                <a class="icon-btn" href="#" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="3.4" stroke="currentColor" stroke-width="1.4"/><circle cx="16.6" cy="7.4" r="0.9" fill="currentColor"/></svg>
+                </a>
+                <a class="icon-btn" href="#" aria-label="X (Twitter)">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                </a>
+                <a class="icon-btn" href="#" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="6.5" width="17" height="11" rx="3" stroke="currentColor" stroke-width="1.4"/><path d="M10.5 10l4 2-4 2v-4Z" fill="currentColor"/></svg>
+                </a>
+                </div>
+            </div>
+
+            </div>
+        </div>
+
+        <!-- elemento de assinatura: friso de "prateleira" -->
+        <div class="shelf-ledge" aria-hidden="true"></div>
+
+        <div class="footer-bottom">
+            <div class="footer-inner footer-bottom-inner">
+            <p>© 2026 Books. Todos os direitos reservados.</p>
+            <div class="footer-legal">
+                <a href="#">Privacidade</a>
+                <a href="#">Termos</a>
+                <a href="#">Cookies</a>
+            </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+{% endblock main %}

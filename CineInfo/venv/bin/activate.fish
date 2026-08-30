@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/annaangel/github/PI/atividades-pi/CineInfo/venv
+set -gx VIRTUAL_ENV /home/annaangelina/github/Programa-o-para-internet-PI-/Atividades-pi/CineInfo/venv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

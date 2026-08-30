@@ -1,4 +1,4 @@
-#!/home/annaangel/github/PI/atividades-pi/CineInfo/venv/bin/python3
+#!/home/annaangelina/github/Programa-o-para-internet-PI-/Atividades-pi/CineInfo/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

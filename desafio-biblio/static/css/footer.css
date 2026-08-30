@@ -1,0 +1,252 @@
+/* ============================================
+   TOKENS — paleta quente inspirada em estante de livros
+   ============================================ */
+:root{
+  --cream-bg:      #F4EEE1;
+  --cream-card:    #FBF7EE;
+  --ink:           #2C2620;
+  --ink-soft:      #7A7266;
+  --gold:          #C99A4E;
+  --gold-deep:     #B4823A;
+  --gold-tint:     #F0DFB8;
+  --line:          #E6DCC3;
+
+  --font-display: "Fraunces", serif;
+  --font-body:    "Inter", sans-serif;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--cream-bg);
+  font-family:var(--font-body);
+  color:var(--ink);
+}
+
+.sr-only{
+  position:absolute;
+  width:1px; height:1px;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+}
+
+.preview-area{
+  max-width:1180px;
+  margin:48px auto 120px;
+  padding:0 32px;
+  color:var(--ink-soft);
+  font-size:0.95rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer{
+  background:var(--cream-card);
+  border-top:1px solid var(--line);
+}
+
+.footer-inner{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 32px;
+}
+
+.footer-top .footer-inner{
+  padding-top:56px;
+  padding-bottom:40px;
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr 1fr 0.8fr;
+  gap:32px;
+}
+
+/* Coluna da marca */
+.footer-brand .brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:1.4rem;
+  color:var(--ink);
+  text-decoration:none;
+}
+
+.brand-mark{
+  width:24px;
+  height:24px;
+  display:inline-flex;
+  color:var(--gold-deep);
+}
+.brand-mark svg{ width:100%; height:100%; }
+
+.footer-tagline{
+  margin:14px 0 20px;
+  max-width:280px;
+  color:var(--ink-soft);
+  font-size:0.9rem;
+  line-height:1.5;
+}
+
+.newsletter{
+  display:flex;
+  gap:8px;
+}
+
+.newsletter input{
+  flex:1;
+  min-width:0;
+  padding:11px 14px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:var(--cream-bg);
+  font-family:var(--font-body);
+  font-size:0.85rem;
+  color:var(--ink);
+}
+.newsletter input::placeholder{ color:var(--ink-soft); }
+
+.newsletter input:focus-visible{
+  outline:2px solid var(--gold-deep);
+  outline-offset:2px;
+}
+
+.newsletter button{
+  border:none;
+  background:var(--gold);
+  color:#fff;
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:0.85rem;
+  padding:11px 20px;
+  border-radius:999px;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:background 0.2s ease, transform 0.15s ease;
+}
+.newsletter button:hover{ background:var(--gold-deep); transform:translateY(-1px); }
+
+/* Colunas de links */
+.footer-col h3{
+  font-family:var(--font-body);
+  font-size:0.78rem;
+  font-weight:600;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  margin:0 0 16px;
+}
+
+.footer-col ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+
+.footer-col a{
+  color:var(--ink-soft);
+  text-decoration:none;
+  font-size:0.9rem;
+  transition:color 0.15s ease;
+}
+.footer-col a:hover{ color:var(--ink); }
+
+/* Redes sociais */
+.social-row{
+  display:flex;
+  gap:8px;
+}
+
+.footer-social .icon-btn{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--cream-bg);
+  color:var(--ink-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+.footer-social .icon-btn svg{ width:16px; height:16px; }
+.footer-social .icon-btn:hover{
+  color:var(--gold-deep);
+  border-color:var(--gold);
+  transform:translateY(-1px);
+}
+
+/* ============================================
+   FRISO DE PRATELEIRA — elemento de assinatura
+   ============================================ */
+.shelf-ledge{
+  height:14px;
+  background:
+    linear-gradient(var(--cream-card), var(--gold-tint)),
+    repeating-linear-gradient(
+      90deg,
+      var(--gold) 0 2px,
+      transparent 2px 28px
+    );
+  background-blend-mode:normal;
+  box-shadow: inset 0 6px 8px -6px rgba(44,38,32,0.18);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--gold-deep);
+}
+
+/* ============================================
+   BARRA INFERIOR
+   ============================================ */
+.footer-bottom{
+  background:var(--gold-tint);
+}
+
+.footer-bottom-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 32px;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.footer-bottom p{
+  margin:0;
+  font-size:0.82rem;
+  color:var(--ink-soft);
+}
+
+.footer-legal{
+  display:flex;
+  gap:20px;
+}
+.footer-legal a{
+  font-size:0.82rem;
+  color:var(--ink-soft);
+  text-decoration:none;
+}
+.footer-legal a:hover{ color:var(--ink); }
+
+/* ============================================
+   RESPONSIVO
+   ============================================ */
+@media (max-width: 980px){
+  .footer-top .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+  .footer-brand{ grid-column:1 / -1; }
+}
+
+@media (max-width: 560px){
+  .footer-top .footer-inner{ grid-template-columns:1fr; }
+  .newsletter{ flex-direction:column; }
+  .footer-bottom-inner{ flex-direction:column; align-items:flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .newsletter button, .footer-social .icon-btn{ transition:none; }
+}

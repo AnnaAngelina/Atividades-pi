@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Listar Autores
+{% endblock title %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'css/Autores.css' %}">
+
+{% endblock links %}
+
+
+{% block main %}
+
+  <div class="wrap">
+    <div class="acervo-header">
+      <span class="eyebrow">Catálogo completo</span>
+      <h1>O acervo</h1>
+
+    {% if autores %}
+      <div class="acervo-grid">
+        {% for autor in autores %}
+          <a class="book-card" href="{% url 'detalhesAutor' autor.id %}">
+            <div class="card-meta">
+              <div class="catalog">
+                {{ autor.ano_nascimento }}
+              </div>
+              <p class="title">{{ autor.nome }}</p>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <span class="eyebrow">Nada encontrado</span>
+      </div>
+    {% endif %}
+
+  </div>
+
+{% endblock main %}

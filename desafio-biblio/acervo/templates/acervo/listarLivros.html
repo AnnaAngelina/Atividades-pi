@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Listar Livros
+{% endblock title %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'css/Livros.css' %}">
+
+{% endblock links %}
+
+
+{% block main %}
+
+  <div class="wrap">
+    <div class="acervo-header">
+      <span class="eyebrow">Catálogo completo</span>
+      <h1>O acervo</h1>
+
+    {% if livros %}
+      <div class="acervo-grid">
+        {% for livro in livros %}
+          <a class="book-card" href="{% url 'detalhesLivro' livro.id %}" title="{{ livro.resumo|truncatewords:20 }}">
+            <div class="card-meta">
+              <div class="catalog">
+                Nº {{ livro.id }}
+                {% if livro.data_publicacao %} · {{ livro.data_publicacao }}{% endif %}
+              </div>
+              <p class="title">{{ livro.titulo }}</p>
+              <p class="author">
+                {{ livro.autor.nome }}{% if livro.nome_editora %} · {{ livro.nome_editora }} {% endif %}
+              </p>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+
+    {% else %}
+      <div class="empty-state">
+        <span class="eyebrow">Nada encontrado</span>
+      </div>
+    {% endif %}
+
+  </div>
+
+{% endblock main %}

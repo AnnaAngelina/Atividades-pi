@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Detalhes {{ livro.titulo }}
+{% endblock title %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'css/Autores.css' %}">
+
+{% endblock links %}
+
+
+{% block main %}
+
+  <div class="wrap">
+    <div class="acervo-header">
+      <span class="eyebrow">Detalhes do autor</span>
+      <h1>{{ autor.nome }}</h1>
+
+      <div class="acervo-grid">
+        <a class="book-card book-card-detail" href="#" title="{{ livro.resumo|truncatewords:20 }}">
+          <div class="card-meta">
+            <div class="catalog">
+              {% if autor.ano_nascimento %} · {{ autor.ano_nascimento }}{% endif %}
+              </div>
+              <p class="title">Email: {{ autor.email }}</p>
+      
+              <p class="title">
+                Livros associados:
+              </p>
+              <ul style="margin: 0; display: flex; padding: 0; gap: 5px;">
+                {% for livro in livros %}
+                  <li style="list-style: none; padding: 10px 15px; border: 1px solid gray; border-radius: 10px;"><small>{{ livro.titulo }}</small></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </a>
+      </div>
+  </div>
+
+{% endblock main %}
