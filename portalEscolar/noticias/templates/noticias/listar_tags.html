@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Tags | Portal de Notícias{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+
+    <aside class="latest-news">
+
+        <div class="section-heading">
+            <h2>Tags</h2>
+        </div>
+
+        <div class="tags-list no-home" style="margin: 10px 0;">
+        {% for tag in tags %}
+            <small style="color: grey;">#{{ tag.titulo }}</small>
+        {% endfor %}
+        </div>
+
+        <hr>
+
+        {% for noticia in noticias %}
+
+            <a href="{% url 'detalhes_noticia' noticia.id %}" class="latest-item" style="margin: 10px 0;">
+
+                <div class="latest-image">
+                    <div class="small-image-placeholder"></div>
+                </div>
+
+                <div class="latest-info">
+
+                    <h3>
+                        {{ noticia.manchete }}
+                    </h3>
+
+                    <div class="latest-meta tags-list">
+                    {% for tag in noticia.tags.all %}
+                        <p>#{{ tag }}</p>
+                    {% endfor %}
+                    </div>
+
+                </div>
+
+            </a>
+
+        {% endfor %}
+
+    </aside>
+</section>
+
+{% endblock %}

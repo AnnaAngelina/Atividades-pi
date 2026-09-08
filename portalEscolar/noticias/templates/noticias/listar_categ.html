@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Categorias | Portal de Notícias{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+
+    {% if categorias %}
+        <aside class="latest-news no-home">
+
+            <div class="section-heading">
+                <h2>Categorias</h2>
+            </div>
+
+            <div class="categorias-lista" style="margin: 10px 0;">
+            {% for categoria in categorias %}
+                <p>{{ categoria.nome }}</p>
+            {% endfor %}
+            </div>
+
+            <hr">
+            {% for noticia in noticias %}
+
+                <a href="{% url 'detalhes_noticia' noticia.id %}" class="latest-item" style="margin: 10px 0;">
+
+                    <div class="latest-image">
+                        <div class="small-image-placeholder"></div>
+                    </div>
+
+                    <div class="latest-info">
+
+                        <h3>
+                            {{ noticia.manchete }}
+                        </h3>
+
+                        <div class="latest-meta">
+                            {{ noticia.categoria }}
+                        </div>
+
+                    </div>
+
+                </a>
+
+            {% endfor %}
+
+        </aside>
+
+    {% else %}
+
+        <div class="empty-state">
+            <h2>Nenhuma categoria encontrada</h2>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

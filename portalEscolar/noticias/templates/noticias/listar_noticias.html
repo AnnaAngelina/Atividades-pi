@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Notícias | Portal de Notícias{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+
+    {% if noticias %}
+        <aside class="latest-news no-home">
+
+            <div class="section-heading">
+                <h2>Notícias</h2>
+            </div>
+
+            {% for noticia in noticias %}
+
+                <a href="{% url 'detalhes_noticia' noticia.id %}" class="latest-item">
+
+                    <div class="latest-image">
+                        <div class="small-image-placeholder"></div>
+                    </div>
+
+                    <div class="latest-info">
+
+                        <h3>
+                            {{ noticia.manchete }}
+                        </h3>
+
+                        <div class="latest-meta">
+                            Hoje - 5 min
+                        </div>
+
+                    </div>
+
+                </a>
+
+            {% endfor %}
+
+        </aside>
+
+    {% else %}
+
+        <div class="empty-state">
+            <h2>Nenhuma notícia encontrada</h2>
+            <p>Cadastre uma notícia para começar.</p>
+        </div>
+
+    {% endif %}
+
+{% endblock %}

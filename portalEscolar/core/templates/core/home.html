@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Início | Portal de Notícias{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+
+    {% if noticias %}
+        {% for noticia_principal in noticias_principais %}
+            <a href="{% url 'detalhes_noticia' noticia_principal.id %}" class="featured-news">
+
+                <div class="featured-image">
+                    <div class="image-placeholder"></div>
+                </div>
+
+                <div class="featured-content">
+
+                    <div class="category-label">
+                        <span class="category-dot"></span>
+                        {{ noticia_principal.categoria.nome }}
+                    </div>
+
+                    <h1>
+                        {{ noticia_principal.manchete }}
+                    </h1>
+
+                    <div class="news-meta">
+                        <span>Hoje</span>
+                        <span>•</span>
+                        <span>5 min de leitura</span>
+                    </div>
+
+                </div>
+
+            </a>
+        {% endfor %}
+
+        <aside class="latest-news">
+
+            <div class="section-heading">
+                <span class="section-kicker">Explore</span>
+                <h2>Últimas notícias</h2>
+            </div>
+
+            {% for noticia in noticias %}
+
+                <a href="{% url 'detalhes_noticia' noticia.id %}" class="latest-item">
+
+                    <div class="latest-image">
+                        <div class="small-image-placeholder"></div>
+                    </div>
+
+                    <div class="latest-info">
+
+                        <h3>
+                            {{ noticia.manchete }}
+                        </h3>
+
+                        <div class="latest-meta">
+                            Hoje - 5 min
+                        </div>
+
+                    </div>
+
+                </a>
+
+            {% endfor %}
+
+        </aside>
+
+    {% else %}
+
+        <div class="empty-state">
+            <h2>Nenhuma notícia encontrada</h2>
+            <p>Cadastre uma notícia para começar.</p>
+        </div>
+
+    {% endif %}
+</section>
+
+{% endblock %}
