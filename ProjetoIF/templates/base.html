@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block titulo %}Portal de Projetos{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block links_extra %}
+  {% endblock %}
+</head>
+<body> 
+  <div class="pagina">
+    <header class="cabecalho">
+      <div class="cabecalho__barra">
+        <a class="marca" href="{% url 'home' %}">
+          <span class="marca__selo" aria-hidden="true"></span>
+          Portal de Projetos
+        </a>
+        <nav class="nav-principal" aria-label="Navegação principal">
+          <a href="{% url 'home' %}">Início</a>
+          <a href="{% url 'projetos_lista' %}">Projetos</a>
+          <a href="{% url 'alunos_lista' %}" >Alunos</a>
+        </nav>
+      </div>
+    </header>
+  
+    <main id="conteudo-principal" class="conteudo">
+      {% block conteudo %}
+      {% endblock %}
+    </main>
+ 
+    <footer class="rodape">
+      <div class="rodape__barra">
+        <span>Portal de Projetos. Todos os direitos reservados.</span>
+        <span>Desenvolvido para acompanhamento acadêmico</span>
+      </div>
+    </footer>
+  </div>
+ 
+</body>
+</html>

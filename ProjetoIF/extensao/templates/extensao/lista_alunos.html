@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Projetos — Portal de Projetos
+{% endblock %}
+
+{% block conteudo %}
+<div class="pagina">
+
+    <nav class="migalhas" aria-label="Trilha de navegação">
+    <a href="home.html">Início</a> / <span aria-current="page">Alunos</span>
+    </nav>
+
+    <div class="secao__cabecalho">
+    <h2>Alunos</h2>
+    </div>
+
+    <div class="tabela-wrap">
+    <table class="lista">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Matrícula</th>
+            </tr>
+        </thead>
+        {% if alunos %}
+            <tbody>
+                {% for aluno in alunos %}
+                    <tr>
+                        <td><a class="link-linha" href="{% url 'aluno_detalhes' aluno.id %}">{{ aluno.nome }}</a></td>
+                        <td><span class="situacao situacao--andamento">{{ aluno.matricula }}</span></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        {% else %}
+            <h3>Não há alunos cadastrados</h3>
+        {% endif %}
+    </table>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Projetos — Portal de Projetos
+{% endblock %}
+
+{% block conteudo %}
+<div class="pagina">
+
+    <nav class="migalhas" aria-label="Trilha de navegação">
+    <a href="home.html">Início</a> / <span aria-current="page">Projetos</span>
+    </nav>
+
+    <div class="secao__cabecalho">
+    <h2>Projetos</h2>
+    </div>
+
+    <div class="tabela-wrap">
+    <table class="lista">
+        <thead>
+            <tr>
+                <th>Projeto</th>
+                <th>Aluno responsável</th>
+                <th>Categoria</th>
+                <th>Início</th>
+            </tr>
+        </thead>
+        {% if projetos %}
+            <tbody>
+                {% for projeto in projetos %}
+                    <tr>
+                        <td><a class="link-linha" href="{% url 'detalhes_projeto' projeto.id %}">{{ projeto.titulo }}</a></td>
+                            <td>
+                                {% for p in projeto.equipe.all %}
+                                    {% if forloop.last %}
+                                        <a href="{% url 'aluno_detalhes' p.id %}">{{ p.nome }}</a>
+                                    {% else %}
+                                        <a href="{% url 'aluno_detalhes' p.id %}">{{ p.nome }}</a> |
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                        <td><span class="situacao situacao--andamento">{{ projeto.categoria }}</span></td>
+                        <td>{{ projeto.data_inicio }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        {% else %}
+            <h3>Não há projetos cadastrados</h3>
+        {% endif %}
+    </table>
+    </div>
+
+</div>
+{% endblock %}

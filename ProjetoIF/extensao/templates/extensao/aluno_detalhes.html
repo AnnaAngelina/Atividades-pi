@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Projetos — Portal de Projetos
+{% endblock %}
+
+{% block conteudo %}
+<nav class="migalhas" aria-label="Trilha de navegação">
+    <a href="home.html">Início</a> / <a href="#">Alunos</a> / <span aria-current="page">Marina Costa</span>
+</nav>
+
+<div class="detalhe-cabecalho">
+    <div class="perfil">
+    <div class="perfil__avatar" aria-hidden="true">MC</div>
+    <div>
+        <h1>{{ aluno.nome }}</h1>
+        <span class="subtitulo">&middot; Matrícula {{ aluno.matricula }}</span>
+    </div>
+    </div>
+</div>
+
+<div class="detalhe">
+    <div class="painel">
+        <h2>Projetos do aluno</h2>
+        <div class="lista-projetos-aluno">
+            {% for project in aluno.projeto.all %}
+                <div class="item-projeto">
+                    <div class="item-projeto__titulo"><a href="{% url 'detalhes_projeto' project.id %}">{{ project.titulo }}</a></div>
+                    <div class="item-projeto__meta">Data início: {{ project.data_inicio }}</div>
+                </div>
+            {% empty %}
+                <div class="item-projeto__titulo"> Não há projetos cadastrados</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <aside>
+        <div class="painel">
+            <h2>Dados do aluno</h2>
+            <div class="ficha">
+            <div class="ficha__linha"><span class="ficha__valor">Matrícula</span><span class="ficha__rotulo">{{ aluno.matricula }}</span></div>
+            <div class="ficha__linha"><span class="ficha__valor">Lattes</span><span class="ficha__rotulo">{{ aluno.perfilAcademico.link_lattes }}</span></div>
+            </div>
+        </div>
+    </aside>
+</div>
+{% endblock %}

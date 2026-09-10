@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    {{ projeto.titulo }} — Portal de Projetos
+{% endblock %}
+ 
+{% block conteudo %}
+<nav class="migalhas" aria-label="Trilha de navegação">
+  <a href="{% url 'home' %}">Início</a> /
+  <a href="{% url 'projetos_lista' %}">Projetos</a> /
+  <span aria-current="page">{{ projeto.titulo }}</span>
+</nav>
+ 
+<div class="detalhe-cabecalho">
+  <div>
+    <h1>{{ projeto.titulo }}</h1>
+        <span class="subtitulo">Responsáveis:
+    {% for p in projeto.equipe.all %}
+        <span class="subtitulo"><a href="{% url 'aluno_detalhes' p.id %}">{{ p.nome }}</a></span>
+    {% endfor %}
+  </div>
+  <span class="situacao situacao--{{ projeto.situacao_slug }}">{{ projeto.situacao }}</span>
+</div>
+ 
+<div class="detalhe">
+    <div class="painel">
+      <ul class="linha-tempo">
+        <li>
+          {{ projeto.descricao }}
+        </li>
+      </ul>
+    </div>
+ 
+  <aside>
+    <div class="painel">
+      <h2>Dados do projeto</h2>
+      <div class="ficha">
+        <div class="ficha__linha">
+          <span class="ficha__valor">Início</span>
+          <span class="ficha__rotulo">{{ projeto.data_inicio }}</span>
+        </div>
+
+        <div class="ficha__linha ficha_projetos">
+            <span class="ficha__valor" style="text-align: left;">Responsáveis:</span>
+            {% for p in projeto.equipe.all %}
+                <span class="ficha__rotulo" style="text-align: left;">{{ p }}</span>
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+ 
+  </aside>
+ 
+</div>
+ 
+{% endblock %}
