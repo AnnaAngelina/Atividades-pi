@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block scripts %}
+    <script>
+
+        function confirmDelete(event) {
+            event.preventDefault();
+            const form = event.target.closest('form');
+
+            Swal.fire({
+            title: "Tem certeza que deseja excluir?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#2c4577",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Excluir"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        }
+
+        
+    </script>
+{% endblock %}
+
+
+
+{% block titulo %}
+    Categorias — Portal de Projetos
+{% endblock %}
+
+{% block conteudo %}
+<div class="pagina">
+
+    <nav class="migalhas" aria-label="Trilha de navegação">
+    <a href="{% url 'home' %}">Início</a> / <span aria-current="page">Categorias</span>
+    </nav>
+
+    <div class="secao__cabecalho">
+    <h2>Categorias</h2>
+    </div>
+
+    <div class="lista-categoria">
+        {% for categoria in categorias %}
+            <div>
+                <p>{{ categoria.nome }}</p>
+                <div style="display: flex; gap: 10px;">
+                    <a class="category-button" style="text-decoration: none; color: black;" href="{% url 'editar_categoria' categoria.id %}">Editar</a>
+
+                    <form method="post" action="{% url 'excluir_categoria' categoria.id %}" onsubmit="confirmDelete(event)" >
+                    {% csrf_token %}
+                        <button type="submit" class="category-button">
+                            Excluir
+                        </button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

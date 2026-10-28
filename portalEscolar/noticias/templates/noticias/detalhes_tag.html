@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Categorias | Portal de Notícias{% endblock %}
+
+{% block scripts %}
+    <script>
+
+        function confirmDelete(event) {
+            event.preventDefault();
+            const form = event.target.closest('form');
+
+            Swal.fire({
+            title: "Tem certeza que deseja excluir?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#2c4577",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Excluir"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        }
+    </script>
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero-section">
+
+    <aside class="latest-news no-home">
+
+        <div class="section-heading">
+            <h2>Tag - {{ tag.titulo }}</h2>
+        </div>
+
+        <div class="categorias-lista" style="margin: 10px 0;">
+            <div class="lista-categoria">
+                <div>
+                    <p style="color: #a94f28;">{{ tag.titulo }}</p>
+                    <div style="display: flex; gap: 10px;">
+                        <a class="category-button" style="text-decoration: none; color: black;" href="{% url 'editar_tag' tag.id %}">Editar</a>
+
+                        <form method="post" action="{% url 'excluir_tag' tag.id %}" onsubmit="confirmDelete(event)" >
+                        {% csrf_token %}
+                            <button type="submit" class="category-button">
+                                Excluir
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr">
+        {% for noticia in noticias %}
+
+            <a href="{% url 'detalhes_noticia' noticia.id %}" class="latest-item" style="margin: 10px 0; color: black;">
+
+                <div class="latest-image">
+                    <div class="small-image-placeholder"></div>
+                </div>
+
+                <div class="latest-info">
+
+                    <h3>
+                        {{ noticia.manchete }}
+                    </h3>
+
+                    <div class="latest-meta">
+                        Categoria: {{ noticia.categoria }}
+                    </div>
+
+                </div>
+
+            </a>
+
+        {% empty %}
+
+            <small>Não há notícias associadas</small>
+
+        {% endfor %}
+
+    </aside>
+
+{% endblock %}

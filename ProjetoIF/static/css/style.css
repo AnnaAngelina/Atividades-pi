@@ -81,6 +81,58 @@ img {
   outline-offset: 2px;
 }
 
+.create_box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  padding: 30px 25px;
+  border-radius: 20px;
+}
+
+.create_box label {
+  margin-bottom: 5px;
+}
+
+.create_box input {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid gray;
+
+}
+
+.create_box form > p {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- listar categoria ---------- */
+
+.lista-categoria {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.lista-categoria > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px; 
+  width: 100%; 
+  border-radius: 10px; 
+  margin-bottom: 10px; 
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.lista-categoria .category-button {
+  padding: 10px 15px;
+  background-color: var(--azul-100);
+  border-radius: 20px;
+  border: 0;
+}
+
 /* ---------- layout geral ---------- */
 
 .pagina {

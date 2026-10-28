@@ -8,13 +8,14 @@
 
     <aside class="latest-news">
 
-        <div class="section-heading">
+        <div class="section-heading" style="display: flex; justify-content: space-between; align-items: center;">
             <h2>Tags</h2>
+            <a href="{% url 'criar_tag' %}" class="category-button" style="background-color: #73573f; color: white;">Criar Tag</a>
         </div>
 
-        <div class="tags-list no-home" style="margin: 10px 0;">
+        <div class="tags-list no-home" style="margin: 10px 0; display: flex; flex-wrap: wrap;">
         {% for tag in tags %}
-            <small style="color: grey;">#{{ tag.titulo }}</small>
+            <a href="{% url 'detalhes_tag' tag.id %}" style="color: grey; font-size: 12px;">#{{ tag.titulo }}</a>
         {% endfor %}
         </div>
 

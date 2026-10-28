@@ -9,7 +9,7 @@
 <div class="pagina">
 
     <nav class="migalhas" aria-label="Trilha de navegação">
-    <a href="home.html">Início</a> / <span aria-current="page">Projetos</span>
+    <a href="{% url 'home' %}">Início</a> / <span aria-current="page">Projetos</span>
     </nav>
 
     <div class="secao__cabecalho">
@@ -40,7 +40,9 @@
                                     {% endif %}
                                 {% endfor %}
                             </td>
-                        <td><span class="situacao situacao--andamento">{{ projeto.categoria }}</span></td>
+                        <td>
+                            <span class="situacao situacao--andamento">{{ projeto.categoria }}</span>
+                        </td>
                         <td>{{ projeto.data_inicio }}</td>
                     </tr>
                 {% endfor %}

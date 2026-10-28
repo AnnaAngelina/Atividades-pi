@@ -95,6 +95,20 @@ button {
 
 /* AÇÕES */
 
+.migalhas {
+  font-size: 13px;
+  color:  #a94f28;
+  margin-bottom: 20px;
+}
+
+.migalhas a {
+  color: #a94f28;
+}
+
+.migalhas span[aria-current] {
+  color: #a94f28;
+}
+
 .nav-actions {
     display: flex;
     align-items: center;
@@ -126,10 +140,12 @@ button {
 
 .start-button:hover {
     transform: translateY(-2px);
+    color: white;
 }
 
 .start-button span {
     font-size: 14px;
+    color: white;
 }
 
 
@@ -204,6 +220,30 @@ button {
 
 /* conteúdo */
 
+.create_box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.create_box label {
+  margin-bottom: 5px;
+}
+
+.create_box input {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid gray;
+
+}
+
+.create_box form > p {
+  display: flex;
+  flex-direction: column;
+}
+
 .featured-content {
     position: relative;
     z-index: 2;
@@ -266,6 +306,34 @@ button {
     opacity: 0.85;
 }
 
+/* =====================================================
+   LISTAR CATEGORIAS
+===================================================== */
+
+.lista-categoria {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.lista-categoria > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px; 
+  width: 100%; 
+  border-radius: 10px; 
+  margin-bottom: 10px; 
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.category-button {
+  padding: 10px 15px;
+  background-color: var(--azul-100);
+  border-radius: 20px;
+  border: 0;
+}
 
 /* =====================================================
    ÚLTIMAS NOTÍCIAS
@@ -288,12 +356,12 @@ button {
 
 .latest-item {
     display: flex;
-
     gap: 12px;
-
     padding: 11px 0;
-
     border-bottom: 1px solid #eeeeee;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .latest-item:first-of-type {

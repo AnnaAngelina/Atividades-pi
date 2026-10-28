@@ -26,7 +26,7 @@ class Projeto(models.Model):
     titulo = models.CharField(max_length=150)
     descricao = models.TextField()
     data_inicio = models.DateField()
-    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, related_name='projeto', null=True, blank=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name='projeto', null=True, blank=True)
     equipe = models.ManyToManyField(Aluno, related_name='projeto')
 
     def __str__(self):

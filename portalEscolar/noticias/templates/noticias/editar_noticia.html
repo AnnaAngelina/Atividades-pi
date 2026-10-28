@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+    Adicionar Notícia
+{% endblock %}
+
+{% block content %}
+<div class="pagina">
+
+    <nav class="migalhas" aria-label="Trilha de navegação">
+    <a href="{% url 'home' %}">Início</a> / <span aria-current="page">Editar Notícia</span>
+    </nav>
+
+    <div class="section-heading">
+        <h2>Editar Notícia</h2>
+    </div>
+
+    <div class="create_box">
+        <form action="{% url 'editar_noticia' noticia.id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button class="botao start-button" type="submit">Editar</button>
+
+            {{ form.non_field_errors }}
+            {{ form.texto.label_tag }}
+            {{ form.texto }}
+            {% if form.texto.errors %}
+                <p style="color: darkred; padding: 20px; background-color:lightcoral; box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;">{{ form.texto.errors }}</p>
+            {% endif %}
+        </form>
+    </div>
+   
+</div>
+{% endblock %}

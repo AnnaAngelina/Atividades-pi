@@ -17,7 +17,7 @@ class Tag(models.Model):
 class Noticia(models.Model):
     manchete = models.CharField(max_length=200)
     descricao = models.TextField()
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='noticias')
+    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name='noticias')
     tags = models.ManyToManyField('Tag', related_name='noticias')
 
     def __str__(self):

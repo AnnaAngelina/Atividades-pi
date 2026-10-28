@@ -2,6 +2,31 @@
 
 {% block title %}Categorias | Portal de Notícias{% endblock %}
 
+{% block scripts %}
+    <script>
+
+        function confirmDelete(event) {
+            event.preventDefault();
+            const form = event.target.closest('form');
+
+            Swal.fire({
+            title: "Tem certeza que deseja excluir?",
+            text: "A categoria pode estar vinculada a alguma notícia",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#2c4577",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Excluir"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        }
+    </script>
+{% endblock %}
+
+
 {% block content %}
 
 <section class="hero-section">
@@ -9,20 +34,35 @@
     {% if categorias %}
         <aside class="latest-news no-home">
 
-            <div class="section-heading">
+            <div class="section-heading" style="display: flex; justify-content: space-between; align-items: center;">
                 <h2>Categorias</h2>
+                <a href="{% url 'criar_categoria' %}" class="category-button" style="background-color: #73573f; color: white;">Criar Categoria</a>
             </div>
 
             <div class="categorias-lista" style="margin: 10px 0;">
-            {% for categoria in categorias %}
-                <p>{{ categoria.nome }}</p>
-            {% endfor %}
+                <div class="lista-categoria">
+                    {% for categoria in categorias %}
+                        <div>
+                            <p style="color: #a94f28;">{{ categoria.nome }}</p>
+                            <div style="display: flex; gap: 10px;">
+                                <a class="category-button" style="text-decoration: none; color: black;" href="{% url 'editar_categoria' categoria.id %}">Editar</a>
+
+                                <form method="post" action="{% url 'excluir_categoria' categoria.id %}" onsubmit="confirmDelete(event)" >
+                                {% csrf_token %}
+                                    <button type="submit" class="category-button">
+                                        Excluir
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
 
             <hr">
             {% for noticia in noticias %}
 
-                <a href="{% url 'detalhes_noticia' noticia.id %}" class="latest-item" style="margin: 10px 0;">
+                <a href="{% url 'detalhes_noticia' noticia.id %}" class="latest-item" style="margin: 10px 0; color: black;">
 
                     <div class="latest-image">
                         <div class="small-image-placeholder"></div>

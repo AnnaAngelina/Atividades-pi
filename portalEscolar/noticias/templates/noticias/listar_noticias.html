@@ -2,6 +2,31 @@
 
 {% block title %}Notícias | Portal de Notícias{% endblock %}
 
+{% block scripts %}
+    <script>
+
+        function confirmDelete(event) {
+            event.preventDefault();
+            const form = event.target.closest('form');
+
+            Swal.fire({
+            title: "Tem certeza que deseja excluir?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#2c4577",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Excluir"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        }
+        
+    </script>
+{% endblock %}
+
+
 {% block content %}
 
 <section class="hero-section">
@@ -15,25 +40,37 @@
 
             {% for noticia in noticias %}
 
-                <a href="{% url 'detalhes_noticia' noticia.id %}" class="latest-item">
+                    <div class="latest-item">
 
-                    <div class="latest-image">
-                        <div class="small-image-placeholder"></div>
-                    </div>
+                        <div style="display: flex; gap: 10px;">
+                            <a href="{% url 'editar_noticia' noticia.id %}" class="category-button" style="background-color: #b7a28d; color: white;">Editar</a>
+                            <form method="post" action="{% url 'excluir_noticia' noticia.id %}" onsubmit="confirmDelete(event)" >
+                            {% csrf_token %}
+                                <button type="submit" class="category-button" style="background-color: #73573f; color: white;">
+                                    Excluir
+                                </button>
+                            </form>
+                        </div>
 
-                    <div class="latest-info">
-
-                        <h3>
-                            {{ noticia.manchete }}
-                        </h3>
-
-                        <div class="latest-meta">
-                            Hoje - 5 min
+                        <div>
+                            <div class="latest-image">
+                                <div class="small-image-placeholder"></div>
+                            </div>
+        
+                            <div class="latest-info">
+        
+                                <h3>
+                                    <a href="{% url 'detalhes_noticia' noticia.id %}">{{ noticia.manchete }}</a>
+                                </h3>
+        
+                                <div class="latest-meta">
+                                    Hoje - 5 min
+                                </div>
+        
+                            </div>
                         </div>
 
                     </div>
-
-                </a>
 
             {% endfor %}
 
